@@ -1,0 +1,957 @@
+#VRML_SIM R2021b utf8
+WorldInfo {
+  physics "my_physics"
+  basicTimeStep 10
+  coordinateSystem "NUE"
+  contactProperties [
+    ContactProperties {
+      material1 "rubber"
+      material2 "glass"
+      coulombFriction [
+        3
+      ]
+    }
+  ]
+}
+Viewpoint {
+  fieldOfView 1
+  orientation -0.4120794281514605 -0.872535449789971 -0.26243558019860463 1.2023576631671629
+  position -0.5059255781937338 0.77292668949188 0.20856587655157793
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 0 -0.01 0
+  floorSize 5 5
+  floorTileSize 0.2 0.2
+}
+Solid {
+  translation -0.16 0 0
+  children [
+    DEF wood Shape {
+      appearance Appearance {
+      }
+      geometry Box {
+        size 0.1 0.01 0.1
+      }
+    }
+  ]
+  name "solid1"
+  boundingObject USE wood
+}
+Solid {
+  translation -0.35 0 -0.01
+  children [
+    DEF wood Shape {
+      appearance Appearance {
+      }
+      geometry Box {
+        size 0.1 0.01 0.1
+      }
+    }
+  ]
+  name "solid2"
+  boundingObject USE wood
+}
+Solid {
+  translation -0.15 0 -0.19
+  children [
+    DEF wood Shape {
+      appearance Appearance {
+      }
+      geometry Box {
+        size 0.1 0.01 0.1
+      }
+    }
+  ]
+  name "solid3"
+  boundingObject USE wood
+}
+Solid {
+  translation -0.35 0 -0.19
+  children [
+    DEF wood Shape {
+      appearance Appearance {
+      }
+      geometry Box {
+        size 0.1 0.01 0.1
+      }
+    }
+  ]
+  name "solid4"
+  boundingObject USE wood
+}
+Solid {
+  translation 0.25 0.31 0
+  children [
+    DEF WALL Shape {
+      appearance Appearance {
+        material Material {
+          ambientIntensity 0.9
+          diffuseColor 1 1 1
+        }
+      }
+      geometry Box {
+        size 0.1 1 1
+      }
+    }
+  ]
+  name "wall"
+  contactMaterial "glass"
+  boundingObject USE WALL
+}
+DEF gebot Robot {
+  translation 0.142311 0.274744 -0.264949
+  rotation 0.0007453842915603462 -0.0008136913182789403 0.9999993911541629 1.5726
+  children [
+    GPS {
+      translation 0 0.02 0
+      rotation 1 0 0 4.692820414042842e-06
+      children [
+        DEF GPS Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+      boundingObject USE GPS
+    }
+    InertialUnit {
+      translation 0.07 0 0
+      rotation -0.5773519358536053 0.5773479358540498 -0.5773509358537164 2.0944
+      children [
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Box {
+            size 0.01 0.01 0.01
+          }
+        }
+      ]
+    }
+    DEF RF Transform {
+      translation 0.06 0 0.04
+      rotation 0 0 1 1.5708003061004252
+      children [
+        DEF RF0 HingeJoint {
+          jointParameters HingeJointParameters {
+            position 3.303219669341429e-06
+          }
+          device [
+            DEF RF0_RotionalMotor RotationalMotor {
+              name "RF0 RotationalMotor"
+            }
+            DEF RF0 PositionSensor {
+              name "RF0 PositionSensor"
+            }
+          ]
+          endPoint Solid {
+            translation 0.00012091672379443389 7.482643479812854e-05 3.072884405965412e-05
+            rotation 0.07221997312368517 0.8996426076029841 0.4306128819105593 1.0759752815532109e-05
+            children [
+              Transform {
+                rotation -4.3994e-07 -6.98158e-08 -1 1.5708
+                children [
+                  DEF RF1 HingeJoint {
+                    jointParameters HingeJointParameters {
+                      position -1.564781905132928e-05
+                    }
+                    device [
+                      DEF RF1 RotationalMotor {
+                        name "RF1 RotationalMotor"
+                      }
+                      DEF RF1 PositionSensor {
+                        name "RF1 PositionSensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 8.032748033404132e-07 -2.928164237765716e-07 0.019003678680242626
+                      rotation 1 0 0 1.5707841073905653
+                      children [
+                        Transform {
+                          translation 0 0.025 0
+                          rotation 0 1 0 1.5708
+                          children [
+                            DEF LF2 HingeJoint {
+                              jointParameters HingeJointParameters {
+                                position -2.911293994797643e-06
+                              }
+                              device [
+                                DEF RF2 RotationalMotor {
+                                  name "RF2 RotationalMotor"
+                                }
+                                DEF RF2 PositionSensor {
+                                  name "RF2 PositionSensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0.00020852439544627268 -1.311420536287432e-05 0.023505198409616967
+                                rotation 0.9999999999827843 4.496515145588762e-06 -3.770015168591279e-06 1.5707952687133369
+                                children [
+                                  DEF RFxiaotui Solid {
+                                    translation -0.02 0.0235 0
+                                    rotation 0 0 1 1.5707996938995747
+                                    children [
+                                      DEF RF_touch_sensor TouchSensor {
+                                        translation 0 0.0245 0
+                                        rotation 1 0 0 1.5707996938995745
+                                        children [
+                                          DEF RF_foot Solid {
+                                            translation 0 0 -0.002
+                                            rotation 1 0 0 0
+                                            children [
+                                              DEF RF_pad Solid {
+                                                translation 0 0 -0.002
+                                                children [
+                                                  DEF RF_pad Shape {
+                                                    appearance PBRAppearance {
+                                                    }
+                                                    geometry Box {
+                                                      size 0.025 0.025 0.003
+                                                    }
+                                                  }
+                                                ]
+                                                name "RF_pad"
+                                                boundingObject USE RF_pad
+                                                physics Physics {
+                                                  density -1
+                                                  mass 0.001
+                                                }
+                                              }
+                                              DEF RF_foot Shape {
+                                                appearance PBRAppearance {
+                                                }
+                                                geometry Box {
+                                                  size 0.02 0.02 0.001
+                                                }
+                                              }
+                                            ]
+                                            name "RF_foot"
+                                            contactMaterial "rubber"
+                                            boundingObject USE RF_foot
+                                            physics Physics {
+                                              density -1
+                                              mass 0.001
+                                            }
+                                          }
+                                          DEF RF_touch_sensor Shape {
+                                            appearance PBRAppearance {
+                                            }
+                                            geometry Sphere {
+                                              radius 0.002
+                                            }
+                                          }
+                                        ]
+                                        name "RF_touch_sensor"
+                                        contactMaterial "rubber"
+                                        boundingObject USE RF_touch_sensor
+                                        physics Physics {
+                                          density -1
+                                          mass 0.02
+                                        }
+                                        type "force-3d"
+                                      }
+                                      DEF LEG_RF3 Shape {
+                                        appearance PBRAppearance {
+                                        }
+                                        geometry Capsule {
+                                          height 0.04
+                                          radius 0.005
+                                        }
+                                      }
+                                    ]
+                                    name "RFxiaotui"
+                                    boundingObject USE LEG_RF3
+                                    physics Physics {
+                                      density -1
+                                      mass 0.02
+                                    }
+                                  }
+                                  DEF LEG_RF2 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0.5 1 1
+                                    }
+                                    geometry Capsule {
+                                      height 0.047
+                                      radius 0.002
+                                    }
+                                  }
+                                ]
+                                name "RFxiaotui"
+                                boundingObject USE LEG_RF2
+                                physics Physics {
+                                  density -1
+                                  mass 0.02
+                                }
+                              }
+                            }
+                          ]
+                        }
+                        DEF LEG_RF1 Shape {
+                          appearance PBRAppearance {
+                          }
+                          geometry Capsule {
+                            height 0.05
+                            radius 0.003
+                          }
+                        }
+                      ]
+                      boundingObject USE LEG_RF1
+                      physics Physics {
+                        density -1
+                        mass 0.02
+                      }
+                    }
+                  }
+                ]
+              }
+              DEF RF0 Shape {
+                appearance PBRAppearance {
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.005
+                }
+              }
+            ]
+            name "solid(2)"
+            boundingObject USE RF0
+            physics Physics {
+              density -1
+              mass 0.02
+            }
+          }
+        }
+      ]
+    }
+    Emitter {
+    }
+    DEF LF Transform {
+      translation 0.06 0 -0.04
+      rotation 0 0 1 1.5707996938995747
+      children [
+        DEF LF0 HingeJoint {
+          jointParameters HingeJointParameters {
+            position 6.18604568826276e-06
+          }
+          device [
+            DEF LF0_RotionalMotor RotationalMotor {
+              name "LF0 RotationalMotor"
+            }
+            DEF LF0 PositionSensor {
+              name "LF0 PositionSensor"
+            }
+          ]
+          endPoint Solid {
+            translation 4.74111679059086e-05 -6.467616213776246e-05 1.2808041890297768e-05
+            rotation 0.9671929118013102 -0.12202509457612795 0.22281774537722587 6.064095242562773e-06
+            children [
+              Transform {
+                rotation -3.81873e-07 -7.94056e-08 1 -1.5708053071795867
+                children [
+                  DEF LF1 HingeJoint {
+                    jointParameters HingeJointParameters {
+                      position 7.374658922267519e-06
+                    }
+                    device [
+                      DEF LF1 RotationalMotor {
+                        name "LF1 RotationalMotor"
+                      }
+                      DEF LF1 PositionSensor {
+                        name "LF1 PositionSensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation 4.3756504647383155e-07 2.2619806446521983e-05 -0.01900051740131849
+                      rotation -0.9999999999997021 -5.418844459483133e-07 5.493806800324437e-07 1.570792195528001
+                      children [
+                        Transform {
+                          translation 0 0.025 0
+                          rotation 0 1 0 -1.5707996938995747
+                          children [
+                            DEF LF2 HingeJoint {
+                              jointParameters HingeJointParameters {
+                                position -2.936813817397786e-07
+                              }
+                              device [
+                                DEF LF2 RotationalMotor {
+                                  name "LF2 RotationalMotor"
+                                }
+                                DEF LF2 PositionSensor {
+                                  name "LF2 PositionSensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0.00013473653902092858 1.7526837925960875e-07 -0.02350042761850313
+                                rotation -0.9999999999820197 -4.261620604133793e-06 -4.218915580861124e-06 1.5707990232996916
+                                children [
+                                  DEF LFxiaotui Solid {
+                                    translation -0.02 0.0235 0
+                                    rotation 0 0 1 1.5708
+                                    children [
+                                      DEF LF_touch_sensor TouchSensor {
+                                        translation -8.84649e-10 0.0245 -1.32523e-09
+                                        rotation 1 0 0 1.5707996938995747
+                                        children [
+                                          DEF LF_foot Solid {
+                                            translation 0 0 -0.002
+                                            children [
+                                              DEF LF_pad Solid {
+                                                translation 0 0 -0.002
+                                                children [
+                                                  DEF LF_pad Shape {
+                                                    appearance PBRAppearance {
+                                                    }
+                                                    geometry Box {
+                                                      size 0.025 0.025 0.003
+                                                    }
+                                                  }
+                                                ]
+                                                name "LF_pad"
+                                                boundingObject USE LF_pad
+                                                physics Physics {
+                                                  density -1
+                                                  mass 0.001
+                                                }
+                                              }
+                                              DEF LF_foot Shape {
+                                                appearance PBRAppearance {
+                                                }
+                                                geometry Box {
+                                                  size 0.02 0.02 0.001
+                                                }
+                                              }
+                                            ]
+                                            name "LF_foot"
+                                            contactMaterial "rubber"
+                                            boundingObject USE LF_foot
+                                            physics Physics {
+                                              density -1
+                                              mass 0.001
+                                            }
+                                          }
+                                          DEF RF_touch_sensor Shape {
+                                            appearance PBRAppearance {
+                                            }
+                                            geometry Sphere {
+                                              radius 0.002
+                                            }
+                                          }
+                                        ]
+                                        name "LF_touch_sensor"
+                                        contactMaterial "rubber"
+                                        boundingObject USE RF_touch_sensor
+                                        physics Physics {
+                                          density -1
+                                          mass 0.02
+                                        }
+                                        type "force-3d"
+                                      }
+                                      DEF LEG_LF03 Shape {
+                                        appearance PBRAppearance {
+                                        }
+                                        geometry Capsule {
+                                          height 0.04
+                                          radius 0.005
+                                        }
+                                      }
+                                    ]
+                                    name "LFxiaotui"
+                                    boundingObject USE LEG_LF03
+                                    physics Physics {
+                                      density -1
+                                      mass 0.02
+                                    }
+                                  }
+                                  DEF LEG_LF2 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0.5 1 1
+                                    }
+                                    geometry Capsule {
+                                      height 0.047
+                                      radius 0.002
+                                    }
+                                  }
+                                ]
+                                name "LFxiaotui"
+                                boundingObject USE LEG_LF2
+                                physics Physics {
+                                  density -1
+                                  mass 0.02
+                                }
+                              }
+                            }
+                          ]
+                        }
+                        DEF LEG_LF1 Shape {
+                          appearance PBRAppearance {
+                          }
+                          geometry Capsule {
+                            height 0.05
+                            radius 0.003
+                          }
+                        }
+                      ]
+                      name "LFdatui"
+                      boundingObject USE LEG_LF1
+                      physics Physics {
+                        density -1
+                        mass 0.02
+                      }
+                    }
+                  }
+                ]
+              }
+              DEF LF0 Shape {
+                appearance PBRAppearance {
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.005
+                }
+              }
+            ]
+            name "solid(1)"
+            boundingObject USE LF0
+            physics Physics {
+              density -1
+              mass 0.02
+            }
+          }
+        }
+      ]
+    }
+    DEF LH Transform {
+      translation -0.06 0 -0.04
+      rotation 0 0 1 1.5707996938995747
+      children [
+        DEF LH0 HingeJoint {
+          jointParameters HingeJointParameters {
+            position -5.055706329413327e-06
+          }
+          device [
+            DEF LH0 RotationalMotor {
+              name "LH0 RotationalMotor"
+            }
+            DEF LH0 PositionSensor {
+              name "LH0 PositionSensor"
+            }
+          ]
+          endPoint Solid {
+            translation 0.00014006459056870024 6.297106682875719e-05 -3.224445195449162e-05
+            rotation -0.3891257743192024 -0.6615123676234618 -0.6410791832852498 1.4325620190246846e-05
+            children [
+              Transform {
+                rotation 0.5773489358550934 -0.5773519358547601 0.5773499358549823 -2.094405307179586
+                children [
+                  DEF LH1 HingeJoint {
+                    jointParameters HingeJointParameters {
+                      position 1.9978770833905428e-05
+                    }
+                    device [
+                      DEF LH1 RotationalMotor {
+                        name "LH1 RotationalMotor"
+                      }
+                      DEF LH1 PositionSensor {
+                        name "LH1 PositionSensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation -1.1119671872173933e-07 0.019000177476955597 -2.087875676318461e-05
+                      rotation 1.1838533059092624e-05 -0.9999999998598591 -1.1837690633986995e-05 1.5707983551188496
+                      children [
+                        Transform {
+                          translation 0 0.025 0
+                          children [
+                            DEF LH2 HingeJoint {
+                              jointParameters HingeJointParameters {
+                                position 1.227834752980689e-05
+                              }
+                              device [
+                                DEF LH2 RotationalMotor {
+                                  name "LH2 RotationalMotor"
+                                }
+                                DEF LH2 PositionSensor {
+                                  name "LH2 PositionSensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0.0001269954998904081 1.5199129707708415e-07 0.023499974408998137
+                                rotation 0.9999999999753514 4.9264707544672485e-06 -5.002707221709593e-06 1.5708114527079937
+                                children [
+                                  DEF LH_xiaotui Solid {
+                                    translation -0.02 0.0235 0
+                                    rotation 0 0 1 1.5707996938995747
+                                    children [
+                                      DEF LH_touch_sensor TouchSensor {
+                                        translation 0 0.0245 0
+                                        rotation 3.390488950803185e-09 -0.707104781184338 0.7071087811831002 3.14159
+                                        children [
+                                          DEF LH_foot Solid {
+                                            translation 0 0 -0.002
+                                            rotation 1 0 0 0
+                                            children [
+                                              DEF LH_pad Solid {
+                                                translation 0 0 -0.002
+                                                children [
+                                                  DEF LH_pad Shape {
+                                                    appearance PBRAppearance {
+                                                    }
+                                                    geometry Box {
+                                                      size 0.025 0.025 0.003
+                                                    }
+                                                  }
+                                                ]
+                                                name "LH_pad"
+                                                boundingObject USE LH_pad
+                                                physics Physics {
+                                                  density -1
+                                                  mass 0.001
+                                                }
+                                              }
+                                              DEF LH_foot Shape {
+                                                appearance PBRAppearance {
+                                                }
+                                                geometry Box {
+                                                  size 0.02 0.02 0.001
+                                                }
+                                              }
+                                            ]
+                                            name "LH_foot"
+                                            contactMaterial "rubber"
+                                            boundingObject USE LH_foot
+                                            physics Physics {
+                                              density -1
+                                              mass 0.001
+                                            }
+                                          }
+                                          DEF LH_touch_sensor Shape {
+                                            appearance PBRAppearance {
+                                            }
+                                            geometry Sphere {
+                                              radius 0.002
+                                            }
+                                          }
+                                        ]
+                                        name "LH_touch_sensor"
+                                        contactMaterial "rubber"
+                                        boundingObject USE LH_touch_sensor
+                                        physics Physics {
+                                          density -1
+                                          mass 0.02
+                                        }
+                                        type "force-3d"
+                                      }
+                                      DEF LEG_LH3 Shape {
+                                        appearance PBRAppearance {
+                                        }
+                                        geometry Capsule {
+                                          height 0.04
+                                          radius 0.005
+                                        }
+                                      }
+                                    ]
+                                    name "LH_xiaotui"
+                                    boundingObject USE LEG_LH3
+                                    physics Physics {
+                                      density -1
+                                      mass 0.02
+                                    }
+                                  }
+                                  DEF LEG_LH2 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0.5 1 1
+                                    }
+                                    geometry Capsule {
+                                      height 0.047
+                                      radius 0.002
+                                    }
+                                  }
+                                ]
+                                name "LH_xiaotui1"
+                                boundingObject USE LEG_LH2
+                                physics Physics {
+                                  density -1
+                                  mass 0.02
+                                }
+                              }
+                            }
+                          ]
+                        }
+                        DEF LEG_LH1 Shape {
+                          appearance PBRAppearance {
+                          }
+                          geometry Capsule {
+                            height 0.05
+                            radius 0.003
+                          }
+                        }
+                      ]
+                      name "LH_datui"
+                      boundingObject USE LEG_LH1
+                      physics Physics {
+                        density -1
+                        mass 0.02
+                      }
+                    }
+                  }
+                ]
+              }
+              DEF LH0 Shape {
+                appearance PBRAppearance {
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.005
+                }
+              }
+            ]
+            name "LH_guanjie"
+            boundingObject USE LH0
+            physics Physics {
+              density -1
+              mass 0.02
+            }
+          }
+        }
+      ]
+    }
+    DEF RH Transform {
+      translation -0.06 0 0.04
+      rotation 0 0 1 1.5707996938995747
+      children [
+        DEF RH0 HingeJoint {
+          jointParameters HingeJointParameters {
+            position 1.3025302837180786e-05
+          }
+          device [
+            DEF RH0 RotationalMotor {
+              name "RH0 RotationalMotor"
+            }
+            DEF RH0 PositionSensor {
+              name "RH0 PositionSensor"
+            }
+          ]
+          endPoint Solid {
+            translation 6.17472421796074e-05 -9.123020522429065e-05 -1.781253382432197e-05
+            rotation 0.997277370187722 -0.01580276075448165 0.07202860309625711 1.3460327039627682e-05
+            children [
+              Transform {
+                rotation 1.28577e-06 -6.98158e-08 -1 1.5708
+                children [
+                  DEF RH1 HingeJoint {
+                    jointParameters HingeJointParameters {
+                      position -1.4212829972513767e-05
+                    }
+                    device [
+                      DEF RH1 RotationalMotor {
+                        name "RH1 RotationalMotor"
+                      }
+                      DEF RH1 PositionSensor {
+                        name "RH1 PositionSensor"
+                      }
+                    ]
+                    endPoint Solid {
+                      translation -3.148655101092851e-07 1.355816718468531e-05 0.019000293840463554
+                      rotation 0.5773505002097967 0.577354262408369 0.5773460449214022 2.0943913391466347
+                      children [
+                        Transform {
+                          translation 0 0.025 0
+                          children [
+                            DEF RH2 HingeJoint {
+                              jointParameters HingeJointParameters {
+                                position 2.453278829642416e-06
+                              }
+                              device [
+                                DEF RH2 RotationalMotor {
+                                  name "RH2 RotationalMotor"
+                                }
+                                DEF RH2 PositionSensor {
+                                  name "RH2 PositionSensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0.000969207917961685 -1.6382117318327333e-06 -0.023499265950142015
+                                rotation -0.9999999999907827 -3.0323444888957977e-06 -3.0397010011148505e-06 1.5707996928164096
+                                children [
+                                  DEF RHxiaotui Solid {
+                                    translation -0.02 0.0235 0
+                                    rotation 0 0 1 1.5707996938995747
+                                    children [
+                                      DEF RH_touch_sensor TouchSensor {
+                                        translation -1.09882e-06 0.0245 0
+                                        rotation 3.3905113482557537e-09 -0.707108281185553 0.70710528118436 3.14159
+                                        children [
+                                          DEF RH_foot Solid {
+                                            translation 0 0 -0.002
+                                            rotation 1 0 0 0
+                                            children [
+                                              DEF RH_pad Solid {
+                                                translation 0 0 -0.002
+                                                children [
+                                                  DEF RH_pad Shape {
+                                                    appearance PBRAppearance {
+                                                    }
+                                                    geometry Box {
+                                                      size 0.025 0.025 0.003
+                                                    }
+                                                  }
+                                                ]
+                                                name "RH_pad"
+                                                boundingObject USE RH_pad
+                                                physics Physics {
+                                                  density -1
+                                                  mass 0.001
+                                                }
+                                              }
+                                              DEF RH_foot Shape {
+                                                appearance PBRAppearance {
+                                                }
+                                                geometry Box {
+                                                  size 0.02 0.02 0.001
+                                                }
+                                              }
+                                            ]
+                                            name "RH_foot"
+                                            contactMaterial "rubber"
+                                            boundingObject USE RH_foot
+                                            physics Physics {
+                                              density -1
+                                              mass 0.001
+                                            }
+                                          }
+                                          DEF RH_touch_sensor Shape {
+                                            appearance PBRAppearance {
+                                            }
+                                            geometry Sphere {
+                                              radius 0.002
+                                            }
+                                          }
+                                        ]
+                                        name "RH_touch_sensor"
+                                        contactMaterial "rubber"
+                                        boundingObject USE RH_touch_sensor
+                                        physics Physics {
+                                          density -1
+                                          mass 0.02
+                                        }
+                                        type "force-3d"
+                                      }
+                                      DEF LEG_RH3 Shape {
+                                        appearance PBRAppearance {
+                                        }
+                                        geometry Capsule {
+                                          height 0.04
+                                          radius 0.005
+                                        }
+                                      }
+                                    ]
+                                    name "RHxiaotui"
+                                    boundingObject USE LEG_RH3
+                                    physics Physics {
+                                      density -1
+                                      mass 0.02
+                                    }
+                                  }
+                                  DEF LEG_RH2 Shape {
+                                    appearance PBRAppearance {
+                                      baseColor 0.5 1 1
+                                    }
+                                    geometry Capsule {
+                                      height 0.047
+                                      radius 0.002
+                                    }
+                                  }
+                                ]
+                                boundingObject USE LEG_RH2
+                                physics Physics {
+                                  density -1
+                                  mass 0.02
+                                }
+                              }
+                            }
+                          ]
+                        }
+                        DEF LEG_RH1 Shape {
+                          appearance PBRAppearance {
+                          }
+                          geometry Capsule {
+                            height 0.05
+                            radius 0.003
+                          }
+                        }
+                      ]
+                      boundingObject USE LEG_RH1
+                      physics Physics {
+                        density -1
+                        mass 0.02
+                      }
+                    }
+                  }
+                ]
+              }
+              DEF RH_JOINT0 Shape {
+                appearance PBRAppearance {
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.005
+                }
+              }
+            ]
+            name "solid(3)"
+            boundingObject USE RH_JOINT0
+            physics Physics {
+              density -1
+              mass 0.02
+            }
+          }
+        }
+      ]
+    }
+    DEF body Shape {
+      appearance Appearance {
+        material Material {
+        }
+        texture ImageTexture {
+        }
+      }
+      geometry Box {
+        size 0.14 0.03 0.08
+      }
+    }
+  ]
+  name "gebot"
+  boundingObject USE body
+  physics Physics {
+    density -1
+    mass 0.4
+    centerOfMass [
+      0 0 0
+    ]
+  }
+  controller "ForceDistribution"
+}
+Solid {
+  translation -1.61618e-06 0.34 -0.44
+  rotation 0 1 0 1.5708
+  children [
+    DEF wall2 Shape {
+      appearance Appearance {
+        material Material {
+          emissiveColor 0.4 0.4 0.4
+        }
+      }
+      geometry Box {
+        size 0.1 1 1
+      }
+    }
+  ]
+  name "wall2"
+  contactMaterial "glass"
+  boundingObject USE wall2
+}
