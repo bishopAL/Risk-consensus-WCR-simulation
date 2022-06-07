@@ -9,7 +9,7 @@
 #include <ode/ode.h>
 #include <plugins/physics.h>
 
-#define NORMAL_FORCE 10
+#define NORMAL_FORCE 5
 static pthread_mutex_t mutex; // needed to run with multi-threaded version of ODE
 //static dGeomID touch_sensor_geom[4];
 static dBodyID touch_sensor_body[4];

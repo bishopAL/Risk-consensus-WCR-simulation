@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/bing/webotscreep-landscape/webot/Quadruped robot/controllers/ForceDistribution/build",
-  "command": "/usr/bin/g++  -I/usr/local/webots/include/controller/c -I/usr/local/webots/include/controller/cpp -I\"/home/bing/webotscreep-landscape/webot/Quadruped robot/controllers/ForceDistribution/./include\" -g -o CMakeFiles/ForceDistribution.dir/src/forceDistribution.cpp.o -c \"/home/bing/webotscreep-landscape/webot/Quadruped robot/controllers/ForceDistribution/src/forceDistribution.cpp\"",
-  "file": "/home/bing/webotscreep-landscape/webot/Quadruped robot/controllers/ForceDistribution/src/forceDistribution.cpp"
-}
-]
